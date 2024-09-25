@@ -1,0 +1,28 @@
+{
+  "name": "my-english-blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.2.13",
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/mdx": "^2.0.13",
+    "grey-matter": "^0.0.0",
+    "next": "14.2.13",
+    "next-mdx-remote": "^5.0.0",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "daisyui": "^4.12.10",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1"
+  }
+}
