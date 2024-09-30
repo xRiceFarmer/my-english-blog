@@ -1,31 +1,43 @@
-import Link from 'next/link'
-import { getAllPostsMeta } from '@/lib/mdx'
-
-
+import Link from "next/link";
+import Image from 'next/image'
+import { getAllPostsMeta } from "@/lib/mdx";
 
 export default async function Page() {
-  const posts = await getAllPostsMeta()
+  const posts = await getAllPostsMeta();
   return (
-    <section className='py-24 bg-base-100'>
-      <div className='container'>
-        <h1 className='text-3xl font-bold'>All Posts</h1>
-        <div className='flex gap-6 mt-6'>
-          {posts?.map(post => (
+    <section className="py-24 bg-base-100">
+      <div className="container">
+        <h1 className="text-3xl text-base-content font-bold">All Posts</h1>
+        {posts?.map((post) => (
+          <div
+            key={post?.title}
+            className="card card-compact bg-base-100 w-96 shadow-xl "
+          >
             <Link
               href={`blogs/${post.slug}`}
-              key={post?.title}
-              className='p-8 rounded-md shadow-md'
+              className="p-8 rounded-md shadow-md"
             >
-              <h3 className='text-xl font-semibold'>{post.title}</h3>
-              <p className='mt-4 text-sm'>{post.author}</p>
-              <time className='text-[12px] text-gray-400'>
-                {post.publishDate}
-              </time>
+              <figure>
+                <Image
+                  src={post.coverImg} 
+                  alt={post.title}
+                  width={600}
+                  height={400}
+                />
+              </figure>
+              <div className="card-body text-base-content">
+                <h2 className="card-title text-base-content">
+                  {post.title}
+                  <time className="badge badge-secondary">
+                    {post.publishDate}
+                  </time>
+                </h2>
+                <p className="mt-4 text-sm text-base-content">{post.author}</p>
+              </div>
             </Link>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
-  )
+  );
 }
-
