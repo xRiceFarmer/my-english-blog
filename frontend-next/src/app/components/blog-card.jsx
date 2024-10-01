@@ -1,15 +1,27 @@
-const BlogCard = () => {
+import Link from "next/link";
+import Image from 'next/image'
+const BlogCard = ({ post }) => {
   return (
-    <div className="card bg-base-100 image-full w-96 shadow-xl">
-      <figure>
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+    <div
+      className="card card-compact bg-primary-content w-96 shadow-xl "
+    >
+      <Link href={`blogs/${post.slug}`} className="p-8 rounded-md shadow-md">
+        <figure>
+          <Image
+            src={post.coverImg}
+            alt={post.title}
+            width={600}
+            height={400}
+          />
+        </figure>
+        <div className="card-body text-base-content">
+          <h2 className="card-title text-base-content">
+            {post.title}
+            <time className="badge badge-secondary">{post.publishDate}</time>
+          </h2>
+          <p className="mt-4 text-sm text-base-content">{post.author}</p>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
