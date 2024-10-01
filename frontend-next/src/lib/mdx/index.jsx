@@ -3,14 +3,18 @@ import path from 'path'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import Slider from '@/app/components/Slider'
 import Image from 'next/image'
+import YouTube from '@/app/components/YouTube'
+import MultipleChoiceQuiz from '@/app/components/MCQs'
 
 const rootDirectory = path.join(process.cwd(),'public', 'posts')
 
 const components = {
     Slider,
+    YouTube,
+    MultipleChoiceQuiz,
     img: (props) => {
       const { src, alt, ...rest } = props
-      const fullSrc = src.startsWith('/') ? src : `/posts/${realSlug}/${src}`
+      const fullSrc = src.startsWith('/') ? src : `/posts/${src}`
       return (
         <Image
           src={fullSrc}
