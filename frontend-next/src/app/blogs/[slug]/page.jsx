@@ -1,9 +1,10 @@
 
 import { getPostBySlug } from '@/lib/mdx'
 import Image from 'next/image'
+import ScrollSpy from '@/app/components/ScrollSpy'
 const getPageContent = async slug => {
-  const { meta, content } = await getPostBySlug(slug)
-  return { meta, content }
+  const { meta, content, headings } = await getPostBySlug(slug)
+  return { meta, content, headings }
 }
 
 export async function generateMetadata({ params }) {
@@ -12,17 +13,18 @@ export async function generateMetadata({ params }) {
 } 
 
 const Page = async ({ params }) => {
-  const { content, meta } = await getPageContent(params.slug)
+  const { meta, content, headings } = await getPageContent(params.slug)
 
   return (
     <section className='py-24 bg-base-100'>
-      <Image
+      {meta.coverImg && <Image
             src={meta.coverImg}
             alt={meta.title}
             width={600}
             height={400}
-          />
+          />}
       <div className='container py-4 prose'>{content}</div>
+      <ScrollSpy headings={headings} />
     </section>
   )
 }

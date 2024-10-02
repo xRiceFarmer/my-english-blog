@@ -3,17 +3,17 @@ import Image from 'next/image'
 const BlogCard = ({ post }) => {
   return (
     <div
-      className="card card-compact bg-primary-content w-96 shadow-xl "
+      className="card card-compact bg-base-100 w-96 shadow-xl "
     >
       <Link href={`blogs/${post.slug}`} className="p-8 rounded-md shadow-md">
-        <figure>
+        {post.coverImg && <figure>
           <Image
             src={post.coverImg}
             alt={post.title}
             width={600}
             height={400}
           />
-        </figure>
+        </figure>}
         <div className="card-body text-base-content">
           <h2 className="card-title text-base-content">
             {post.title}
