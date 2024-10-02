@@ -88,3 +88,4 @@ export const getAllPostsMeta = async () => {
 
   return posts
 }
+
