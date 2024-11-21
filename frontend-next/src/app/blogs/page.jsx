@@ -1,5 +1,5 @@
 import BlogPosts from "../components/blog-posts";
-import { getAllPostsMeta } from "@/lib/mdx";
+import { getAllPostsMeta } from "../../lib/mdx";
 
 export default async function Page() {
   const posts = await getAllPostsMeta();

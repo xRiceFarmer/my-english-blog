@@ -46,10 +46,10 @@ const ScrollSpy = ({ headings }) => {
   };
 
   return (
-    <nav className="fixed right-4 top-1/4 p-4 bg-base-200 rounded-lg shadow-lg">
+    <div className="w-full bg-base-200 rounded-lg shadow-lg max-h-[calc(100vh-6rem)]">
       <ul className="space-y-2">
         {headings.map((heading) => (
-          <li key={heading.id} style={{ marginLeft: `${(heading.level - 1) * 16}px` }}>
+          <li key={heading.id} style={{ marginLeft: `${(heading.level - 1) * 8}px` }}>
             <button
               onClick={() => handleClick(heading.id)}
               className={`text-sm ${
@@ -63,7 +63,7 @@ const ScrollSpy = ({ headings }) => {
           </li>
         ))}
       </ul>
-    </nav>
+    </div>
   );
 };
 

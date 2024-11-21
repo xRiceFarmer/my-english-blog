@@ -1,10 +1,10 @@
 import fs from 'fs'
 import path from 'path'
 import { compileMDX } from 'next-mdx-remote/rsc'
-import Slider from '@/app/components/Slider'
+import Slider from '../../app/components/Slider'
 import Image from 'next/image'
-import YouTube from '@/app/components/YouTube'
-import MultipleChoiceQuiz from '@/app/components/MCQs'
+import YouTube from '../../app/components/YouTube'
+import MultipleChoiceQuiz from '../../app/components/MCQs'
 
 const rootDirectory = path.join(process.cwd(),'public', 'posts')
 
